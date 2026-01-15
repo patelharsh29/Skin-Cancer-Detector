@@ -2,3 +2,9 @@ skin_cancer_cnn.h5
 *.h5
 
 run.txt
+.idea/
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.env
+.DS_Store
