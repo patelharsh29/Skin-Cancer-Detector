@@ -77,8 +77,6 @@ streamlit run main.py
 
 **Total Parameters:** ~44.3M
 
-## 🧠 Model Architecture — 7-Stage CNN (Detailed)
-
 | Stage | Layers / Functions Used | Description |
 |------|--------------------------|-------------|
 | **1️⃣ Convolution Block 1** | Conv2D (32 filters), MaxPooling2D | Extracts low-level visual features such as edges, color gradients, and basic textures from raw pixel data. MaxPooling reduces spatial dimensions while preserving important features and improving computational efficiency. |
