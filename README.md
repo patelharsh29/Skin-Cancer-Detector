@@ -75,15 +75,19 @@ streamlit run main.py
 
 ## 🧠 Model Architecture — 7-Stage CNN Pipeline
 
-1. **Conv Block 1** – Conv2D (32 filters) + MaxPooling  
-2. **Conv Block 2** – Conv2D (64 filters) + MaxPooling  
-3. **Conv Block 3** – Conv2D (128 filters) + MaxPooling  
-4. **Flatten Layer** 
-5. **Dense Layer (512 units)**  
-6. **Dropout Layer**  
-7. **Output Layer (Sigmoid)**  
-
 **Total Parameters:** ~44.3M
+
+## 🧠 Model Architecture — 7-Stage CNN (Detailed)
+
+| Stage | Layers / Functions Used | Description |
+|------|--------------------------|-------------|
+| **1️⃣ Convolution Block 1** | Conv2D (32 filters), MaxPooling2D | Extracts low-level visual features such as edges, color gradients, and basic textures from raw pixel data. MaxPooling reduces spatial dimensions while preserving important features and improving computational efficiency. |
+| **2️⃣ Convolution Block 2** | Conv2D (64 filters), MaxPooling2D | Learns mid-level patterns including shapes, contours, and localized texture variations commonly found in skin lesions. Pooling improves robustness to small spatial changes. |
+| **3️⃣ Convolution Block 3** | Conv2D (128 filters), MaxPooling2D | Captures high-level semantic features correlated with malignancy, such as irregular borders, asymmetry, and structural lesion patterns, while further reducing feature map size. |
+| **4️⃣ Flatten Layer** | Flatten | Converts 2D convolutional feature maps into a 1D feature vector, preparing the extracted visual information for downstream classification. |
+| **5️⃣ Fully Connected Layer** | Dense (512 units) | Learns global relationships and interactions between extracted features, allowing the network to combine multiple visual cues into a single decision. |
+| **6️⃣ Regularization Layer** | Dropout | Randomly deactivates neurons during training to reduce overfitting and improve generalization to unseen images. |
+| **7️⃣ Output Layer** | Dense (1 unit), Sigmoid activation | Produces a probability between 0 and 1 representing the likelihood that the skin lesion is malignant. A threshold of 0.5 is applied for binary classification. |
 
 ---
 
